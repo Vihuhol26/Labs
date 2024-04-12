@@ -5,6 +5,10 @@ header {
     margin: 0px;
 }
 
+div.h1 {
+    text-align: center;
+}
+
 body {
     background-color: lightblue;
     color: rgb(0, 0, 0);
@@ -44,3 +48,16 @@ a:active {
     color: black;
     opacity: 0.3;
 }
+
+div.menu {
+    border: 7px solid #00885280;
+    border-radius: 5px;
+    width: 300 px;
+    margin: 0 auto;
+}
+
+div.menu:hover {
+    background-color: #5ac8e630;
+    box-shadow: 0 0 20px #16000030;
+}
+
