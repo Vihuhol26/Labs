@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чувашова Маргарита Вячеславовна. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="E:\ритина папка\WEB/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-16x16.png">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-32x32.png">
+        <script>
+            function Sum() {
+                let inputA = document.getElementById('numberA');
+                let inputB = document.getElementById('numberB');
+                let inputC = document.getElementById('numberC');
+                let inputD = document.getElementById('numberD');
+                let inputE = document.getElementById('numberE');
+
+                let a = parseInt(inputA.value) || 0;
+                let b = parseInt(inputB.value) || 0;
+                let c = parseInt(inputC.value) || 0;
+                let d = parseInt(inputD.value) || 0;
+                let e = parseInt(inputE.value) || 0;
+
+                let result = a * 100 + b * 80 + c *150 + d * 300 + e * 450;
+                changeOutput(result);
+            }
+
+            function changeOutput(g) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Общая цена: ' + g + 'р';
+
+            }
+
+            function clearInputs() {
+                document.getElementById('numberA').value = '';
+                document.getElementById('numberB').value = '';
+                document.getElementById('numberC').value = '';
+                document.getElementById('numberD').value = '';
+                document.getElementById('numberE').value = '';
+                document.getElementById('output').innerHTML = '';
+            }
+
+        </script>
+        
+        <style>
+            .card {
+                background-color: #fff;
+                border: 1px solid;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                width: 280px;
+                padding: 10px;
+                margin: 20px;
+                text-align: center;
+                display: inline-block;
+                vertical-align: top;
+            }
+            
+            .card h1 {
+                font-size: 35px;
+                margin-bottom: 10px;
+            }
+
+            .card label {
+                font-size: 14px;
+                color: #666;
+                padding: 5px;
+            }
+
+            #output {
+                border: 1px solid;
+                width: 260px;
+                height: 40px;
+                margin: 10px;
+                line-height: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+
+        <main>
+            <div class="card">
+                <h1>Корзина товаров</h1>
+                <label >Яблоки (100р/шт) </label>
+                <input type="number" value="" id="numberA" min="0" placeholder=" Количество "><br>
+
+                <label >Груши (80р/шт) </label>
+                <input type="number" value="" id="numberB" min="0" placeholder=" Количество "><br>
+
+                <label >Апельсины (150р/шт) </label>
+                <input type="number" value="" id="numberC" min="0" placeholder=" Количество "><br>
+
+                <label >Дыни (300р/шт) </label>
+                <input type="number" value="" id="numberD" min="0" placeholder=" Количество "><br>
+
+                <label >Черешня (450р/шт) </label>
+                <input type="number" value="" id="numberE" min="0" placeholder=" Количество "><br>
+                
+                <div>
+                <input type="button" value="Рассчитать" onclick="Sum()">
+                <input type="button" value="Очистить" onclick="clearInputs()">
+                </div>
+
+                <div id="output"></div>
+            </div>
+        </main>
+
+        <footer>
+            &copy; Чувашова Маргарита, ФБИ-23, 2 курс, 2024
+        </footer>
+    </body>
+</html>
