@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чувашова Маргарита Вячеславовна. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="E:\ритина папка\WEB/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-16x16.png">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-32x32.png">
+        <script>
+            function hideCircle(circle) {
+                circle.style.transition = 'all 0.5s';
+                circle.style.opacity = 0;
+                circle.style.width = '0';
+                circle.style.height = '0';
+            }
+
+            function showAllCircles() {
+                var circles = document.querySelectorAll('.circle');
+                circles.forEach(function(circle) {
+                    circle.style.opacity = 1;
+                    circle.style.width = '50px';
+                    circle.style.height = '50px';
+                });
+            }     
+        </script>
+        <style>
+            .circle {
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                border-radius: 50%;
+                border: 1px dashed black;
+                position: absolute;
+                cursor: pointer;
+                font-size: 10px;
+                transition: all 0.5s ease;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 5
+        </header>
+
+        <main>
+
+            <div class="circle" style="background-color: #fff; left: 360px; top: 200px;"onclick="hideCircle(this)">1</div>
+            <div class="circle" style="background-color: #8b9cc0; left: 500px; top: 500px;"onclick="hideCircle(this)">2</div>
+            <div class="circle" style="background-color: #d64e4e; left: 700px; top: 400px;"onclick="hideCircle(this)">3</div>
+            <div class="circle" style="background-color: #b17eee; left: 500px; top: 365px;"onclick="hideCircle(this)">4</div>
+            <div class="circle" style="background-color: #5fee75; left: 830px; top: 290px;"onclick="hideCircle(this)">5</div>
+            <div class="circle" style="background-color: #3a4178; left: 760px; top: 200px;"onclick="hideCircle(this)">6</div>
+            <div class="circle" style="background-color: #ef8aea; left: 390px; top: 230px;"onclick="hideCircle(this)">7</div>
+            <div class="circle" style="background-color: #f77347; left: 260px; top: 150px;"onclick="hideCircle(this)">8</div>
+            <div class="circle" style="background-color: #f24170; left: 600px; top: 90px;"onclick="hideCircle(this)">9</div>
+            <div class="circle" style="background-color: #51c2e1; left: 460px; top: 200px;"onclick="hideCircle(this)">10</div>
+
+            <button onclick="showAllCircles()">Показать все круги</button>
+
+        </main>
+
+        <footer>
+            &copy; Чувашова Маргарита, ФБИ-23, 2 курс, 2024
+        </footer>
+    </body>
+    </html>
