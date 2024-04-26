@@ -9,13 +9,78 @@
         <link rel="icon" href="E:\ритина папка\WEB/favicon-16x16.png">
         <link rel="icon" href="E:\ритина папка\WEB/favicon-32x32.png">
         <script>
+            function applyFilter(filter, value) {
+                document.getElementById(filter + 'Output').innerText = value;
+                document.getElementById('filterImage').style.filter = filter + '(' + value + ')';
+            }
+
             function blurChange() {
                 let value = document.getElementById('blurValue').value + 'px';
-                document.getElementById('blurOutput').innerText = value;
-                document.getElementById('blurImage').style.filter = 'blur('+ value +')';
+                applyFilter('blur', value);
             }
-        </script>
 
+            function brightnessChange() {
+                let value = document.getElementById('brightnessValue').value;
+                applyFilter('brightness', value);
+            }
+
+            function contrastChange() {
+                let value = document.getElementById('contrastValue').value;
+                applyFilter('contrast', value);
+            }
+
+            function grayscaleChange() {
+                let value = document.getElementById('grayscaleValue').value;
+                applyFilter('grayscale', value);
+            }
+
+            function hueRotateChange() {
+                let value = document.getElementById('hueRotateValue').value + 'deg';
+                applyFilter('hueRotate', value);
+            }
+
+            function invertChange() {
+                let value = document.getElementById('invertValue').value + '%';
+                applyFilter('invert', value);
+            }
+
+            function saturateChange() {
+                let value = document.getElementById('saturateValue').value + '%';
+                applyFilter('saturate', value);
+            }
+
+            function sepiaChange() {
+                let value = document.getElementById('sepiaValue').value + '%';
+                applyFilter('sepia', value);
+            }
+
+        </script>
+        <style>
+            .card {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .filter {
+                width: 220px;
+                border: 2px solid;
+                border-radius: 10px;
+                background-color: rgb(143, 211, 157);
+                color: black;
+                padding: 10px;
+                text-align: center;
+                margin-left: -1200px;
+                margin-top: 150px;
+                box-shadow: 2px 2px 5px rgb(25, 33, 37);
+            }
+
+            .img {
+                margin-left: 350px;
+                margin-top: -500px;
+                display: flex; 
+                height: 700px;
+            }
         </style>
     </head>
     <body>
@@ -32,10 +97,52 @@
                         <span id="blurOutput"></span>
                     </div>
 
+                    <div>
+                        Фильтр brightness:
+                        <input type="range" min="0" max="200" value="100" onchange="brightnessChange()" id="brightnessValue">
+                        <span id="brightnessOutput"></span>
+                    </div>
+
+                    <div>
+                        Фильтр contrast:
+                        <input type="range" min="0" max="200" value="100" onchange="contrastChange()" id="contrastValue">
+                        <span id="contrastOutput"></span>
+                    </div>
+
+                    <div>
+                        Фильтр grayscale:
+                        <input type="range" min="0" max="100" value="0" onchange="grayscaleChange()" id="grayscaleValue">
+                        <span id="grayscaleOutput"></span>
+                    </div>
+
+                    <div>
+                        Фильтр hue-rotate:
+                        <input type="range" min="0" max="360" value="0" onchange="hueRotateChange()" id="hueRotateValue">
+                        <span id="hueRotateOutput"></span>
+                    </div>
+
+                    <div>
+                        Фильтр invert:
+                        <input type="range" min="0" max="100" value="0" onchange="invertChange()" id="invertValue">
+                        <span id="invertOutput"></span>
+                    </div>
+
+                    <div>
+                        Фильтр saturate:
+                        <input type="range" min="0" max="500" value="100" onchange="saturateChange()" id="saturateValue">
+                        <span id="saturateOutput"></span>
+                    </div>
+
+                    <div>
+                        Фильтр sepia:
+                        <input type="range" min="0" max="100" value="0" onchange="sepiaChange()" id="sepiaValue">
+                        <span id="sepiaOutput"></span>
+                    </div>
+
 
                 </div>
             </div>
-            <div class="img"><img src="nature.jpg" id="blurImage"></div>
+            <div class="img"><img src="nature.jpg" id="filterImage" style="transform: scale(0.7);"></div>
         </main>
 
         <footer>
