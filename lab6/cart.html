@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чувашова Маргарита Вячеславовна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="E:\ритина папка\WEB/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-16x16.png">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-32x32.png">
+        <style>
+            table {
+                font-family: Arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+        
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+        
+            th {
+                background-color: #f2f2f2;
+            }
+        
+            .total {
+                font-weight: bold;
+            }
+        </style>
+
+        <script>
+            function calculateTotal() {
+                const balanceInput = document.getElementById('balance');
+                const balance = Number(balanceInput.value);
+                const quantities = document.getElementsByClassName('quantity');
+                let total = 0;
+                let message = '';
+        
+                let isEmpty = true;
+                let hasNegativeQuantity = false;
+        
+                for (let i = 0; i < quantities.length; i++) {
+                    const quantity = Number(quantities[i].value);
+                    if (quantity < 0) {
+                        hasNegativeQuantity = true;
+                    }
+                    total += quantity * Number(quantities[i].parentNode.previousElementSibling.innerText);
+                    if (quantity > 0) {
+                        isEmpty = false;
+                    }
+                }
+        
+                if (isEmpty) {
+                    message = 'Выберите хотя бы один товар.';
+                } else if (hasNegativeQuantity) {
+                    message = 'Количество товара не может быть отрицательным.';
+                } else if (total > balance) {
+                    message = 'Ошибка. Сумма покупки превышает ваш баланс.';
+                } else {
+                    message = 'Покупка успешно оформлена.';
+                }
+        
+                document.getElementById('total').innerText = `Итоговая сумма: ${total}`;
+                document.getElementById('message').innerText = message;
+            }
+        </script>
+
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+        </header>
+
+        <main> 
+            <h2>Корзина товаров</h2>
+            <label for="balance">Мой баланс:</label>
+            <input type="number" id="balance" placeholder="Введите ваш баланс">
+            <br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Футболка</td>
+                        <td>20</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Джинсы</td>
+                        <td>50</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Обувь</td>
+                        <td>80</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Часы</td>
+                        <td>100</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Сумка</td>
+                        <td>30</td>
+                        <td><input type="number" class="quantity" value="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <button onclick="calculateTotal()">OK</button>
+            
+            <p id="total"></p>
+            <p id="message"></p>   
+        </main>
+
+        <footer>
+            &copy; Чувашова Маргарита, ФБИ-23, 2 курс, 2024
+        </footer>
+    </body>
+</html>
