@@ -17,16 +17,40 @@
                 newBlock.style.margin = '10px 0';
                 document.querySelector('main').appendChild(newBlock);
             }
+
+            function addNewBlocks() {
+                let main = document.querySelector('main');
+                let numBlocksInput = document.getElementById('numBlocks');
+                let numBlocks = parseInt(numBlocksInput.value);
+
+                main.innerHTML = ''; // Очистить существующие блоки
+
+                for (let i = 0; i < numBlocks; i++) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.backgroundColor = 'green';
+                    newBlock.style.height = '40px';
+                    newBlock.style.border = '2px solid black'; 
+                    newBlock.style.margin = '10px 0';
+                    newBlock.style.width = `${150 + i * 20}px`; // Устанавливаем разную ширину для каждого блока
+
+                    newBlock.innerHTML = `Блок № ${i + 1}: 2 * ${i}<sup>2</sup> = ${2 * i ** 2}`;
+
+                    main.appendChild(newBlock);
+                }
+            }
         </script>
 
     </head>
     <body>
         <header>
-            НГТУ, ФБ, Лабораторная работа 6
+            НГТУ, ФБ, Лабораторная работа 7
         </header>
 
+        
+        <input type="number" id="numBlocks" placeholder="Введите количество блоков">
         <main>
             <button onclick="addNewBlock()">Добавить блок</button>
+            <button onclick="addNewBlocks()">Добавить блоки</button>
         </main>
 
         <footer>
