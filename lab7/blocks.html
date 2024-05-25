@@ -79,6 +79,31 @@
                     main.appendChild(block);
                 }
             }
+
+            function createColorfulCircles() {
+                const circlesContainer = document.getElementById('circlesContainer');
+                circlesContainer.innerHTML = '';
+
+                const inputNumber = document.getElementById('circleNumber').value;
+                const numberOfCircles = parseInt(inputNumber);
+
+                for (let i = 1; i <= numberOfCircles; i++) {
+                    const circle = document.createElement('div');
+                    circle.classList.add('circle');
+                    circle.textContent = numberOfCircles - i + 1;
+
+                    if ((numberOfCircles - i + 1) % 2 === 0) {
+                        circle.style.backgroundColor = 'green';
+                        circle.style.color = 'white';
+                    } else {
+                        circle.style.backgroundColor = 'red';
+                        circle.style.color = 'white';
+                    }
+
+                    circlesContainer.appendChild(circle);
+                }
+            }
+
         </script>
 
         <style>
@@ -101,6 +126,16 @@
                 margin: 5px;
                 display: inline-block;
             }
+
+            .circles {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: inline-block;
+                text-align: center;
+                line-height: 50px;
+                margin: 5px;
+            }
         </style>
     </head>
     <body>
@@ -117,6 +152,10 @@
             <button onclick="add20_50()">20 => 50</button>
             <button onclick="add10toMinus80()">10 => -80</button>
             <button onclick="createOpacityBlocks()">Добавить прозрачные блоки</button>
+
+            <input type="number" id="circleNumber" placeholder="Enter number of circles">
+            <button onclick="createColorfulCircles()">Цветные круги</button>
+            <div id="circlesContainer"></div>
         </main>
 
         <footer>
