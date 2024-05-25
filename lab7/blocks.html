@@ -65,6 +65,20 @@
                     main.appendChild(circle);
                 }
             }
+
+            function createOpacityBlocks() {
+                let main = document.querySelector('main');
+                main.innerHTML = ''; 
+
+                for (let i = 1; i <= 10; i++) {
+                    let block = document.createElement('div');
+                    block.classList.add('block');
+                    block.textContent = i;
+                    block.style.opacity = i / 10;
+
+                    main.appendChild(block);
+                }
+            }
         </script>
 
         <style>
@@ -75,6 +89,17 @@
                 text-align: center;
                 line-height: 20px;
                 margin: 0 5px;
+            }
+
+            .block {
+                width: 50px;
+                height: 50px;
+                background-color: blue;
+                color: white;
+                text-align: center;
+                line-height: 50px;
+                margin: 5px;
+                display: inline-block;
             }
         </style>
     </head>
@@ -91,6 +116,7 @@
             <button onclick="addNewBlocks()">Добавить блоки</button>
             <button onclick="add20_50()">20 => 50</button>
             <button onclick="add10toMinus80()">10 => -80</button>
+            <button onclick="createOpacityBlocks()">Добавить прозрачные блоки</button>
         </main>
 
         <footer>
