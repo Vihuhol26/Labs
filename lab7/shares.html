@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Чувашова Маргарита Вячеславовна. Лабораторная 7</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="E:\ритина папка\WEB/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-16x16.png">
+        <link rel="icon" href="E:\ритина папка\WEB/favicon-32x32.png">
+    </head>
+        <script>
+            function showStockQuotes() {
+                const dates = ['24.05', '23.05', '22.05', '21.05', '20.05', '17.05', '16.05', '15.05', '14.05', '13.05'];
+                const prices = [12.23, 12.26, 12.44, 12.45, 12.61, 12.76, 12.82, 12.53, 12.52, 12.64];
+        
+                let table = document.getElementById('stock-table');
+        
+                let sum = 0;
+                let minPrice = prices[0];
+                let maxPrice = prices[0];
+        
+                for (let i = 0; i < dates.length; i++) {
+                    let tr = document.createElement('tr');
+        
+                    let tdDate = document.createElement('td');
+                    tdDate.innerText = dates[i];
+                    tr.appendChild(tdDate);
+        
+                    let tdPrice = document.createElement('td');
+                    tdPrice.innerText = prices[i];
+                    tr.appendChild(tdPrice);
+        
+                    if (i > 0) {
+                        let diff = (prices[i] - prices[i - 1]).toFixed(2);
+                        let tdDiff = document.createElement('td');
+                        tdDiff.innerText = diff;
+                        tr.appendChild(tdDiff);
+                    } else {
+                        let tdDiff = document.createElement('td');
+                        tdDiff.innerText = '-';
+                        tr.appendChild(tdDiff);
+                    }
+        
+                    table.appendChild(tr);
+        
+                    sum += prices[i];
+        
+                    if (prices[i] < minPrice) {
+                        minPrice = prices[i];
+                    }
+        
+                    if (prices[i] > maxPrice) {
+                        maxPrice = prices[i];
+                    }
+                }
+        
+                let averagePrice = (sum / prices.length).toFixed(2);
+        
+                let details = document.getElementById('details');
+                details.innerHTML = `
+                    <p>Среднее значение стоимости акции: ${averagePrice}</p>
+                    <p>Минимальное значение стоимости акции: ${minPrice}</p>
+                    <p>Максимальное значение стоимости акции: ${maxPrice}</p>
+                `;
+                
+                let button = document.querySelector('button');
+                button.style.display = 'none';
+            }
+        </script>
+
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+        </header>
+
+        <main>
+            <button onclick="showStockQuotes()">Курс акций Новороссийского морского торгового порта</button>
+            <table border="1" id="stock-table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Цена акций</th>
+                        <th>Разница</th>
+                    </tr>
+                </thead>
+            </table>
+            <div id="details"></div>
+        </main>
+
+        <footer>
+            &copy; Чувашова Маргарита, ФБИ-23, 2 курс, 2024
+        </footer>
+    </body>
+</html>
