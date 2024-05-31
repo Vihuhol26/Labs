@@ -1,0 +1,55 @@
+A.white1:link {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #ffffff;
+    FONT-FAMILY: ARIAL, VERDANA, TAHOMA;
+    TEXT-DECORATION: none
+}
+A.white1:visited {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #ffffff;
+    FONT-FAMILY: ARIAL, VERDANA, TAHOMA;
+    TEXT-DECORATION: none
+}
+A.white1:hover {
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 13px;
+    COLOR: #FF9700;
+    FONT-FAMILY: ARIAL, VERDANA, TAHOMA;
+    TEXT-DECORATION: underline
+}
+
+.text {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12px;
+    COLOR: #ffffff;
+    FONT-FAMILY: VERDANA, ARIAL, TAHOMA;
+    TEXT-DECORATION: none
+}
+
+.fontsmallwhite {
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: #ffffff;
+    FONT-FAMILY: VERDANA, ARIAL, TAHOMA;
+    TEXT-DECORATION: none
+}
+
+.fixed-top-bar {
+    position: fixed;
+    top: 50;
+    left: 50;
+    width: 100%;
+    background-color: #003f02; /* цвет заднего фона */
+    z-index: 999; /* чтобы элемент был наверху */
+}
+
+.fixed-top-bar a {
+    color: white; /* белый цвет текста */
+    padding: 10px 15px; /* отступы вокруг текста */
+}
+
+.fixed-top-bar a:hover {
+    text-decoration: underline; /* подчеркивание при наведении */
+}
