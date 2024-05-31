@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТАИФ-ИНВЕСТ. Калькулятор</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: rgb(128, 128, 128);">
+    <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" width="1024">
+        <td><img src="http://www.taif-invest.ru/images/taif.gif" alt="ТАИФ-ИНВЕСТ. ФИНАНСЫ И ИНВЕСТИЦИИ. ФОНДОВЫЙ РЫНОК" border="0" height="147" width="831"></td>
+        <td><img src="http://www.taif-invest.ru/images/invest.gif" border="0" height="147" width="193"></td>
+    </table>
+
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="1024">
+        <tr>
+            <td bgcolor="#003f02" align="left" border="0" height="25" width="10">    <br>
+                <div class="fixed-top-bar">
+                    <a class="WHITE1" href="page1.html">О компании</a>
+                    <span class="fontsmallwhite">|</span>
+                    <a class="WHITE1" href="page2.html">Новости</a>
+                    <span class="fontsmallwhite">|</span>
+                    <a class="WHITE1" href="page3.html">Курс валют</a>
+                    <span class="fontsmallwhite">|</span>
+                    <a class="WHITE1" href="page4.html">Контактные данные</a>
+                    <span class="fontsmallwhite">|</span>
+                    <a class="WHITE1" href="page5.html">Видео</a>
+                </div>
+            </td>
+        </tr>
+      
+        <tr>
+            <td bgcolor="#bca061" border="0" height="10" width="1"></td>
+        </tr>
+    </table>
+
+    <table align="center" bgcolor="#ffffff" border="0" cellpadding="100" width="1024">
+        <td width="1024">
+            <h1>Калькулятор валют</h1>
+            <label for="amountRub">Сумма в рублях:</label>
+            <input type="number" id="amountRub" placeholder="Введите сумму в рублях">
+            <button onclick="convertToRON()">Конвертировать в RON</button>
+            <p id="resultRON"></p>
+
+            <label for="amountRON">Сумма в RON:</label>
+            <input type="number" id="amountRON" placeholder="Введите сумму в RON">
+            <button onclick="convertToRUB()">Конвертировать в RUB</button>
+            <p id="resultRUB"></p>
+        </td>
+    </table>
+
+    <table align="center" border="0" width="1024">
+        <tr>
+            <td align="center" bgcolor="#003f02" height="35" valign="middle" width="1024"><font class="text">2012 © ТАИФ-ИНВЕСТ</font></td>
+        </tr>  
+    </table>
+
+    <script>
+        function convertToRON() {
+            const amount = document.getElementById('amountRub').value;
+
+            fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+                .then(response => response.json())
+                .then(data => {
+                    const rate = data.Valute.RON.Value;
+                    const result = amount / rate;
+                    document.getElementById('resultRON').innerText = `Результат: ${result.toFixed(2)} RON`;
+                })
+                .catch(error => console.error('Ошибка при получении курса валют:', error));
+        }
+
+        function convertToRUB() {
+            const amount = document.getElementById('amountRON').value;
+
+            fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+                .then(response => response.json())
+                .then(data => {
+                    const rate = data.Valute.RON.Value;
+                    const result = amount * rate;
+                    document.getElementById('resultRUB').innerText = `Результат: ${result.toFixed(2)} RUB`;
+                })
+                .catch(error => console.error('Ошибка при получении курса валют:', error));
+        }
+    </script>
+</body>
+</html>
