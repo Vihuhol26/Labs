@@ -16,12 +16,23 @@
         </header>
 
         <main>
-            Дата и время для русской локали <div id="current-date-ru"></div>
-            Дата и время для английской локали <div id="current-date-en"></div>
-            Дата и время для немецкой локали <div id="current-date-de"></div>
-            Дата и время для французской локали <div id="current-date-fr"></div>
-            Дата и время для японской локали <div id="current-date-ja"></div>
-            Дата и время для испанской локали <div id="current-date-es"></div>
+            <b><div class="date" id="current-dateru"></div></b>
+            <b><div class="date" id="current-dateen"></div></b>
+            <b><div class="date" id="current-datear"></div></b>
+            <b><div class="date" id="current-dateel"></div></b>
+            <b><div class="date" id="current-dateno"></div></b>
+            <b><div class="date" id="current-datezh"></div></b>
+
+            <div class="c">
+                <div class="x">
+                    <b><label class="date">Дата рождения: <input type="date"></label></b>
+                </div>
+                <div>
+                    <button onclick="showDaysCount()">Показать число дней</button>
+                    <button onclick="clean()">Очистить</button>
+                </div>
+                <b><div class="date" id="birthday"></div></b>
+                </div>
         </main>
 
         <footer>
