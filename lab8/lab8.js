@@ -1,25 +1,30 @@
 function showDate() {
-    let out = document.getElementById('current-date-ru');
+    let outru = document.getElementById('current-dateru');
+    let outen = document.getElementById('current-dateen');
+    let outar = document.getElementById('current-datear');
+    let outel = document.getElementById('current-dateel');
+    let outno = document.getElementById('current-dateno');
+    let outzh = document.getElementById('current-datezh');
     let today = new Date();
-    out.innerHTML = today.toLocaleString('ru-RU');
+    outru.innerHTML = 'Дата и время для русской локали: ' + today.toLocaleString('ru-RU');
+    outen.innerHTML = 'Дата и время для локали ЮАР: ' + today.toLocaleString('en-ZA');
+    outar.innerHTML = 'Дата и время для локали Арабсих стран: ' + today.toLocaleString('ar-AA');
+    outel.innerHTML = 'Дата и время для греческой локали: ' + today.toLocaleString('el-GR');
+    outno.innerHTML = 'Дата и время для норвежской локали: ' + today.toLocaleString('no-NO');
+    outzh.innerHTML = 'Дата и время для китайской локали: ' + today.toLocaleString('zh-CN');
+}
 
-    let out1 = document.getElementById('current-date-en');
-    let today1 = new Date();
-    out1.innerHTML = today1.toLocaleString('en-US');
+function showDaysCount() {
+    let outbd = document.getElementById('birthday');
+    let today = new Date();
+    let inputDate = document.querySelector('input[type=date]');
+    let birthday = new Date(inputDate.value);
+    let daysCount = (today - birthday)/1000/60/60/24;
+    daysCount = Math.floor(daysCount);
+    outbd.innerHTML = 'Количество дней с даты рождения: ' + daysCount;
+}
 
-    let out2 = document.getElementById('current-date-de');
-    let today2 = new Date();
-    out2.innerHTML = today2.toLocaleString('de-DE');
-
-    let out3 = document.getElementById('current-date-fr');
-    let today3 = new Date();
-    out3.innerHTML = today3.toLocaleString('fr-FR');
-
-    let out4 = document.getElementById('current-date-ja');
-    let today4 = new Date();
-    out4.innerHTML = today4.toLocaleString('ja-JP');
-
-    let out5 = document.getElementById('current-date-es');
-    let today5 = new Date();
-    out5.innerHTML = today5.toLocaleString('es-ES');
+function clean() {
+    document.querySelector('input[type=date]').value = "";
+    document.getElementById('birthday').hidden = true;
 }
